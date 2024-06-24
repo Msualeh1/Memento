@@ -38,5 +38,5 @@ jobs:
         working-directory: Memento
 
       - name: Build project
-        run: npm run build
+        run: npm start app.js
         working-directory: Memento
