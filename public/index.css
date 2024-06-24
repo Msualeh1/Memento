@@ -1,0 +1,121 @@
+
+
+.herosection{
+    background-image: url('/river.png');
+    background-size: cover;
+}
+.row.hero{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
+    height: 400px;
+    text-align: center;
+ 
+}
+.row.second{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.row.text-center.icons{
+    margin-top: 5rem;
+  
+}
+.box{
+    background-image: url('/river.png');
+    background-size: cover;
+    text-align: center;
+    overflow-x: hidden;
+ 
+    
+}
+.col-md-6{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.col-md-6.text{
+    padding: 0rem 0.2rem 0rem 0.5rem;
+    overflow-x: hidden;
+    text-align: center;
+}
+.form-control.me-2.hero{
+    border-radius: 0.7rem;
+    width: 40pc;
+    padding: 0rem 0.5rem 0rem 0.5rem;
+    border: 1px solid black;
+    height: 3.2rem;
+    border-radius: 1.5rem;
+    box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.2);
+    transition: 0.3 ease;
+   
+    
+}
+.form-control.me-2.hero:focus{
+    box-shadow: 5px 5px 1px black;
+}
+.searchbar{
+    height: 5rem;
+}
+.d-flex2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.btn.btn-outline-success.herobtn{
+    height: 3.1rem;
+    width: 7.5rem;
+    align-items: center;
+    font-size: 1.2rem;
+    border-radius: 1.2rem;
+    margin-top: 0.5rem;
+}
+.fa-solid.fa-magnifying-glass::before{
+    position: relative;
+    bottom: 4px;
+
+}
+.col-md-6 img{
+width: 24pc;
+}
+
+
+
+@media (max-width: 400px) {
+    .col-md-6 img {
+        width: 100%;
+    }
+   
+}
+
+@media (max-width: 800px){
+    .d-flex2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .form-control.me-2.hero{
+        width: 26pc;
+        border: 1px solid black;
+    }
+   
+}
+@media (max-width: 400px){
+    .d-flex2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .form-control.me-2.hero{
+        width: 20pc;
+        border: 1px solid black;
+    }
+   
+}

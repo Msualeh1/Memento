@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memento</title>
+  <link rel="stylesheet" href="/topics.css">
+</head>
+<%- include ('navbar') %>
+
+  <body>
+    <div class="topic_body">
+    
+<br><br><br>
+        <div class="row hero" style="margin-left: 10rem;">
+          <h2 style="margin-top:4rem;color:white;">Quick Search Topic of Interest</h2>
+          <div class="container searchbar">
+              <form class="d-flex2" role="search" action="/search" method="GET">
+                  <input class="form-control me-2 hero" style="width: 50pc;" type="search" name='key' placeholder="Search"
+                      aria-label="Search">
+                  <button class="btn btn-outline-success herobtn" type="submit">Search <i
+                          class="fa-solid fa-magnifying-glass"></i></button>
+
+              </form>
+              
+          </div>
+      </div>
+          <div class="topics">
+
+            <% subTopics.forEach(topic=> { %>
+              <a href="/subjects/topics/<%= topic._id %>" style="text-decoration: none;color: black;">
+                <h4 class="headings">
+                  <%= topic.topic %>
+                </h4>
+              </a>
+              <% }); %>
+
+          </div>
+    </div>
+  </body>
+
+</html>

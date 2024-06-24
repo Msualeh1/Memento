@@ -1,0 +1,20 @@
+
+.topics{
+    margin-top: 3.7rem;
+}
+.headings{
+    border: 1px solid black;
+    color: white;
+    border-radius: 1rem;
+    text-decoration: none;
+    padding-left: 1rem;
+    line-height: 3rem;
+    transition: 0.5s;
+    font-weight:lighter;
+}
+.topic_body{
+    background-image: url('/river.png');
+}
+.headings:hover{
+    box-shadow: 4px 4px 4px black;
+}

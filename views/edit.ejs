@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/add.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <%- include ('navbar') %>
+    <br><br><br>
+    <div class="d-grid gap-2">
+        <button class="btn btn-danger" type="button">Edit Your Notes</button>
+      </div>
+    <form method="POST" action="/subjects/topics/<%=result._id%>/edit/submit?_method=PUT">
+        <div class="editpage" style="margin-top:3rem;">
+            <div class="container mt-5">
+                <label for="editTitle">Edit Title:</label>
+                <textarea class="form-control border-2" id="editTitle" name="topic" rows="1"><%= result.topic %></textarea>
+            </div>
+    
+            <div class="container mt-5">
+                <label for="editIntroduction">Edit Introduction:</label>
+                <textarea class="form-control border-2" id="editTitle" name="introduction" rows="7"><%= result.introduction %></textarea>
+            </div>
+    
+            <div class="container mt-5">
+                <label for="editBody">Edit Body:</label>
+                <textarea class="form-control border-2" id="editTitle" name="Body" rows="10">
+                    <% result.body.forEach(section=> { %>
+                        <%= section.title %>
+                        <% section.content.forEach(subsection=> { %>
+                            <%= subsection.subtitle %>
+                            <%= subsection.text %>
+                        <% }) %>
+                    <% }) %>
+                </textarea>
+            </div>
+    
+            <div class="container mt-5">
+                <label for="editConclusion">Edit Conclusion:</label>
+                <textarea class="form-control border-2" id="editTitle" name="conclusion" rows="3"><%= result.conclusion %></textarea>
+            </div>
+    
+            <div class="container mt-5">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+    
+</body>
+
+</html>

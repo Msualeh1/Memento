@@ -1,0 +1,11 @@
+.loginpage{
+    margin: 5rem 2rem 0rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.alert.alert-success.my_flash{
+    margin-top: 3.6rem;
+    text-align: center;
+}

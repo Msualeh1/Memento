@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/add.css">
+    <title>Document</title>
+</head>
+<body>
+    <%- include ('navbar') %>
+<br><br><br>
+<div class="d-grid gap-2">
+    <button class="btn btn-success" type="button">Upload Your Notes Below</button>
+  </div>
+<form method="POST" action="/subjects/philosophy/upload">
+    <div class="container mt-5" style="font-weight: bold;">
+        <label for="editTitle" style="font-size: 1rem;">Title:</label>
+        <textarea class="form-control border-2" id="editTitle" name="topic" rows="1"></textarea>
+    </div>
+
+    <div class="container mt-5" style="font-weight: bold;">
+        <label for="editIntroduction" style="font-size: 1rem;">Introduction:</label>
+        <textarea class="form-control border-2" id="editTitle" name="introduction" rows="7"></textarea>
+    </div>
+
+    <label for="body" style="font-weight: bolder;margin-left: 4.3rem;font-size: 1.5rem;">Body Section</label>
+    <!-- Assuming you want to dynamically add multiple sections to the body -->
+    <!-- You can use JavaScript to dynamically add more sections if needed -->
+    <div id="bodySections" style="font-weight: bold;">
+        <div class="bodySection">
+            <div class="container mt-5" style="font-weight: bold;">
+                <label for="editTitle" style="font-size: 1rem;">Title:</label>
+                <textarea class="form-control border-2" id="editTitle" name="body[0][title]" rows="1"></textarea>
+            </div>
+            
+            <div class="container mt-5" style="font-weight: bold;">
+                <label for="editTitle" style="font-size: 1rem;">Subtitle:</label>
+                <textarea class="form-control border-2" id="editTitle" name="body[0][content][0][subtitle]" rows="1"></textarea>
+            </div>
+
+            <div class="container mt-5" style="font-weight: bold;">
+                <label for="editTitle" style="font-size: 1rem;">Content:</label>
+                <textarea class="form-control border-2" id="editTitle" name="body[0][content][0][text]" rows="1"></textarea>
+            </div>
+
+        </div>
+    </div>
+    <button class="btn btn-success addSectionButton" style="margin:1rem 0 0 5rem;"  type="button" onclick="addSection()">Add Section</button><br>
+
+    <div class="container mt-5" style="font-weight: bold;">
+        <label for="editConclusion" style="font-size: 1.5rem;">Conclusion:</label>
+        <textarea class="form-control border-2" id="editTitle" name="conclusion" rows="3"></textarea>
+    </div>
+
+    <button class="btn btn-success addSectionButton" style="margin:1rem 0 0 5rem;" type="submit">Upload</button>
+</form>
+
+
+<script>
+    // Global counter for section IDs
+    let sectionCounter = 1;
+
+    // Function to add a new section
+    function addSection() {
+        // Create a new section element
+        const section = document.createElement('div');
+        section.className = 'section';
+
+      
+
+        const subtitleInput = document.createElement('input');
+        subtitleInput.type = 'text';
+        subtitleInput.name = `body[${sectionCounter}][content][0][subtitle]`; // Set name attribute
+        subtitleInput.placeholder = 'Enter subtitle';
+
+        const textInput = document.createElement('textarea');
+        textInput.name = `body[${sectionCounter}][content][0][text]`; // Set name attribute
+        textInput.rows = '3'; // Set size to 3 rows
+        textInput.placeholder = 'Enter text';
+
+        // Append input fields to the section element
+      
+        section.appendChild(subtitleInput);
+        section.appendChild(textInput);
+
+        // Append the section to the container
+        const container = document.getElementById('bodySections');
+        container.appendChild(section);
+
+        // Increment section counter for unique names
+        sectionCounter++;
+    }
+</script>
+
+<%- include ('footer') %>
+
+</body>
+</html>

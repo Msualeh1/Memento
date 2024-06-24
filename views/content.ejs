@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/content.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <%- include ('navbar') %>
+        <br><br><br>
+    
+        <h1>
+            <%= topics.topic %>
+        </h1>
+        <div class="CRUD">
+        <a href="/subjects/topics/<%=topics._id%>/edit">
+            <button type="button" class="btn btn-success btn-lg" style="margin-right: 1rem; width: 6rem;">Edit</button>
+        </a>
+        <form method="POST" action="/subjects/topics/<%=topics._id%>/delete?_method=DELETE">
+            <button type="submit" class="btn btn-danger btn-lg" style="margin-right: 2rem;">Delete</button>
+        </form>
+    </div>
+        <h2>Introduction:</h2>
+        <p>
+            <%= topics.introduction %>
+        </p>
+
+        <h2>Body</h2>
+        <% topics.body.forEach(section=> { %>
+            <h3>
+                <%= section.title %>
+            </h3>
+
+            <% section.content.forEach(subsection=> { %>
+                <h4>
+                    <%= subsection.subtitle %>
+                </h4>
+                <p>
+                    <%= subsection.text %>
+                </p>
+                <% }) %>
+                    <% }) %>
+
+                        <h2>Conclusion:</h2>
+                        <p>
+                            <%= topics.conclusion %>
+                        </p>
+
+
+                        <%- include ('footer') %>
+                    </div>
+</body>
+
+</html>

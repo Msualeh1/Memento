@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/subjects.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <%- include ('navbar') %>
+  <% if (messages.success && messages.success.length> 0) { %>
+    <div class="alert alert-success my_flash" style="margin-top:3.6rem; text-align:center;">
+      <%= messages.success %>
+    </div>
+    <% } %>
+    <br><br>
+    
+    <div class="container cardlist">
+      <div class="row">
+        <div class="card col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3" style="width: 18rem;margin-top: 3rem;padding: 0">
+          <img src="/philosophy.png" class="card-img-top" alt="Socrates' death">
+          <div class="card-body">
+            <h5 class="card-title">Philosophy</h5>
+            <p class="card-text">Highly detailed and precis philosophy notes</p>
+            <a href="/subjects/topics" class="btn btn-secondary">Check Now</a>
+          </div>
+        </div>
+
+
+        <div class="card col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3" style="width: 18rem;margin-top: 3rem;padding: 0">
+          <img src="/socio.png" class="card-img-top" alt="festival" style="height:12rem">
+          <div class="card-body">
+            <h5 class="card-title">Sociology</h5>
+            <p class="card-text">Highly detailed and precis Sociology notes</p>
+            <a href="/topics" class="btn btn-secondary">Check Now</a>
+          </div>
+        </div>
+
+
+        <div class="card col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3" style="width: 18rem;margin-top: 3rem;padding: 0;">
+          <img src="/governance.png" class="card-img-top" alt="Socrates' death" style="height:12rem;">
+          <div class="card-body">
+            <h5 class="card-title">Governance & Public Policy</h5>
+            <p class="card-text">Highly detailed and precis philosophy notes</p>
+            <a href="/topics" class="btn btn-secondary">Check Now</a>
+          </div>
+        </div>
+
+
+        <div class="card col-12 col-sm- col-md-6 col-lg-6 col-xl-3" style="width: 18rem;margin-top: 3rem;padding: 0">
+          <img src="/philosophy.png" class="card-img-top" alt="Socrates' death">
+          <div class="card-body">
+            <h5 class="card-title">Philosophy</h5>
+            <p class="card-text">Highly detailed and precis philosophy notes</p>
+            <a href="/topics" class="btn btn-secondary">Check Now</a>
+          </div>
+        </div>
+
+        <div class="card col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3" style="width: 18rem;margin-top: 3rem;padding: 0">
+          <img src="/philosophy.png" class="card-img-top" alt="Socrates' death">
+          <div class="card-body">
+            <h5 class="card-title">Philosophy</h5>
+            <p class="card-text">Highly detailed and precis philosophy notes</p>
+            <a href="/topics" class="btn btn-secondary">Check Now</a>
+          </div>
+        </div>
+
+        <div class="card col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3" style="width: 18rem;margin-top: 3rem;padding: 0">
+          <img src="/philosophy.png" class="card-img-top" alt="Socrates' death">
+          <div class="card-body">
+            <h5 class="card-title">Philosophy</h5>
+            <p class="card-text">Highly detailed and precis philosophy notes</p>
+            <a href="/topics" class="btn btn-secondary">Check Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%-include('footer')%>
+</body>
+
+</html>

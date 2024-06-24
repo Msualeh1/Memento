@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memento|Sign In</title>
+    <link rel="stylesheet" href="/signIn.css">
+</head>
+
+<body>
+    <%- include ('navbar') %>
+    <% if (messages.auth && messages.auth.length > 0) { %>
+      <div class="alert alert-danger my_flash" style="text-align:center;margin-top:3.6rem">
+          <%= messages.auth %>
+      </div>
+    <% } %>
+
+    <% if (messages.error && messages.error.length > 0) { %>
+      <div class="alert alert-danger my_flash" style="text-align:center;margin-top:3.6rem">
+          <%= messages.error %>
+      </div>
+    <% } %>
+
+    <form class="loginpage" action="/user/signIn/submit" method="POST">
+        <div class="mb-3 col-6">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" name= "email" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3 col-6">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </form>
+      <%-include('footer')%>
+</body>
+</html>

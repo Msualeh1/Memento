@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%-include('navbar')%>
+    <br><br><br><br>
+    <div class="textbox" style="text-align: center;padding: 0rem 1rem 0rem 1rem ;">
+    <h1><%= aboutdata.topic %></h1>
+
+<h2><%= aboutdata.introduction.title %></h2>
+<p><%= aboutdata.introduction.text %></p>
+
+<h2><%= aboutdata.body.title %></h2>
+<ul>
+  <% aboutdata.body.list.forEach(function(item) { %>
+    <li style="list-style: none;"><%= item %></li>
+  <% }); %>
+</ul>
+
+<h2><%= aboutdata.conclusion.title %></h2>
+<p><%= aboutdata.conclusion.text1 %></p>
+<p><%= aboutdata.conclusion.text2 %></p>
+
+<h2><%= aboutdata.founder_note.title %></h2>
+<p><%= aboutdata.founder_note.text %></p>
+</div>
+<%-include('footer')%>
+</body>
+</html>
+

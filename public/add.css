@@ -1,0 +1,19 @@
+.section input{
+    display: block;
+    width: 40pc;
+    margin: 1rem 5rem;
+    border-radius: 1rem;
+    height: 3rem;
+    padding-left: 1rem;
+}
+.section textarea{
+display: block;
+    margin: 0 5rem;
+    width: 50pc;
+    border-radius: 1rem;
+    height: 7rem;
+    padding-left: 1rem;
+}
+#editTitle:focus{
+box-shadow: 5px 5px 1px black;
+}

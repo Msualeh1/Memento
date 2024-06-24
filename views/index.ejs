@@ -1,0 +1,98 @@
+<%- include ('navbar') %>
+    <div class="herosection">
+        <% if (messages.out && messages.out.length> 0) { %>
+            <div class="alert alert-success alert-dismissible fade show my_flash" role="alert"
+                style="text-align:center;margin-top: 3.6rem;">
+                <%= messages.out %>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <% } %>
+            <% if (messages.registered && messages.registered.length> 0) { %>
+                <div class="alert alert-success alert-dismissible fade show my_flash" role="alert"
+                    style="text-align:center;margin-top: 3.6rem;">
+                    <%= messages.registered %>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <% } %>
+                
+                <link rel="stylesheet" href="/index.css">
+                <div class="row hero">
+                    <h2 style="margin-top:4rem;color:white;">Digitalize Your Studies<br>with Memento</h2>
+                    <div class="container searchbar">
+                        <form class="d-flex2" role="search" action="/search" method="GET">
+                            <input class="form-control me-2 hero"style="padding-left:3rem;" type="search" name='key' placeholder="Search"
+                                aria-label="Search">
+                            <button class="btn btn-outline-success herobtn" type="submit">Search <i
+                                    class="fa-solid fa-magnifying-glass"></i></button>
+
+                        </form>
+                        <p style="font-size: larger;margin-top:2rem;color:white;">Streamline your competitive studies</p>
+                    </div>
+                </div>
+    </div>
+    </div>
+
+
+    <body>
+
+        </div>
+        <div class="row text-center icons">
+            <div class="col-md-4" style="padding: 0;">
+                <img src="/pin.webp" class="img-fluid" alt="Pin Image">
+                <h3>Remember <br>everything</h3>
+                <p>Make notes more useful by adding <br> text, images, audio, scans, PDFs, and<br> documents.</p>
+            </div>
+            <div class="col-md-4" style="padding: 0;">
+                <img src="/check.webp" class="img-fluid" alt="Pin Image">
+                <h3>Remember <br>everything</h3>
+                <p>Make notes more useful by adding <br> text, images, audio, scans, PDFs, and<br> documents.</p>
+            </div>
+            <div class="col-md-4" style="padding: 0;">
+                <img src="/search.webp" class="img-fluid" alt="Pin Image">
+                <h3>Remember <br>everything</h3>
+                <p>Make notes more useful by adding <br> text, images, audio, scans, PDFs, and<br> documents.</p>
+            </div>
+        </div>
+        <div class="box" style="padding:0;max-width: 100pc;"><br><br>
+            <h3 style="color:white;">Feel the calm of being<br> more
+                organized with Digitalized Notes.
+            </h3><br>
+            <br><br><br><br><br><br>
+            <% if(!status){%>
+            <a href="/user/signUp">
+                <button type="button" class="btn btn-primary btn-lg btn-custom-height mb-5 "
+                    style="background-color:#1f363d; border:none">Sign up
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                </button>
+            </a>
+            <%}%>
+
+            <% if(status){%>
+                <a href='/subjects/philsophy/add'>
+                    <button type="button" class="btn btn-primary btn-lg btn-custom-height mb-5 "
+                        style="background-color:#1f363d; border:none">Add Your Notes
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                    </button>
+                </a>
+                <%}%>
+
+
+
+        </div>
+        <div class="container mt-3">
+            <div class="row lastrow">
+                <div class="col-md-6 text" style="position:relative;right:2rem">
+                    <h3>Take digital notes & highlight<br> key points of a topic</h3><br><br><br>
+                    <i class="fa-solid fa-book" style="font-size: 11rem; margin-bottom: 3rem;"></i>
+                    <p style="font-size: larger;">Memento interface is full of <br>graphic-rich notes customization
+                        options<br> that
+                        let your personalize freely</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="/easy-search.webp">
+                </div>
+            </div>
+        </div>
+
+        <%- include('footer') %>
+    </body>

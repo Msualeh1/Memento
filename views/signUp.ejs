@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/signIn.css">
+    <title>Memento|SignUp</title>
+</head>
+<body>
+    <%- include ('navbar') %>
+    
+    <% if (messages.error && messages.error.length > 0) { %>
+        <div class="alert alert-danger my_flash" style="margin-top: 3.6rem;text-align: center;">
+            <%= messages.error %>
+        </div>
+    <% } %>
+    
+    <form class="loginpage needs-validation" validate action="/user/signUp/create_account" method="POST">
+
+        <div class="mb-3 col-6">
+            <label for="exampleInputusername" class="form-label">Enter User Name</label>
+            <input type="text" class="form-control" id="exampleInputusername1" name="username" aria-describedby="usernameHelp">
+            <div id="usernameHelp" class="form-text"></div>
+          </div>
+
+        <div class="mb-3 col-6">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3 col-6">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign up</button>
+      </form>
+      <%-include('footer')%>
+</body>
+</html>

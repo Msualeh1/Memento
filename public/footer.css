@@ -1,0 +1,35 @@
+
+.footer-badge{
+    margin-top: 2rem;
+    display: flex;
+    
+    background-image: url('/river.png');
+    align-items: center;
+    
+}
+.icons.offset-7{
+    margin-left:50%;
+}
+.icons.offset-7 i{
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    transition: 0.3s ease;
+}
+.icons.offset-7 i:hover{
+    transform: scale(1.5);
+}
+.row.footer_row li{
+    list-style: none;
+    color: white;
+    line-height: 2rem;
+}
+.row.footer_row{
+    padding-top: 2rem;
+    background-image: url('/river.png');
+    margin-right: 0.1rem;
+}
+@media (max-width:400px){
+    .icons.offset-7{
+        margin-left:10%;
+    }
+}

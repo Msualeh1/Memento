@@ -1,0 +1,206 @@
+
+
+.nav-item1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-link2{
+    text-decoration: none;
+}
+.nav-item1:hover{
+  border: 1px solid black;
+  border-radius: 1rem;
+}
+.dropdown{
+   
+    margin-left: 2rem;
+    
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+.user:hover{
+    box-shadow: 2px 2px 2px #1f363d;
+    background-color: #1f363d;
+    transition: 0.5s;
+    border-radius: 0.5rem;
+}
+
+
+.navbar {
+    
+   
+    width: 100%;
+    z-index: 1000;
+    background-image: url('/river.png');
+    
+    }
+   
+    .container-fluid{
+        position: fixed;
+        top: 0;
+        height: 4.5rem;
+        background-image: url('river.png');
+        padding-right: 0;
+    }
+
+.navbar-toggler-close-custom.btn{
+    display: none;
+    
+}
+
+.navbar-nav .nav-item a {
+    margin-left: 1rem; /* Adjust margin value as needed */
+    color: white;
+    border-radius: 1rem;
+    transition: 0.3s;
+    font-size: large;
+    
+  }
+
+  .navbar-nav .nav-item a:hover{
+    box-shadow: 2px 2px 2px #1f363d;
+    background-color: #1f363d;
+    transition: 0.5s;
+    border-radius: 1rem;
+    
+  }
+.btn.btn-outline-success{
+    display: flex;
+    flex-direction: row;
+    color: white;
+    background-color: #1f363d;
+   border: none;
+    border-radius: 0.7rem;
+}
+.form-control.me-2{
+    border-radius: 0.7rem;
+    
+    
+}
+
+.form-control.me-2:focus{
+    box-shadow: 5px 5px 1px black;
+    border: none;
+}
+.fa-solid.fa-magnifying-glass{
+    position: relative;
+    top:5px;
+    padding-left: 5px;
+}
+.navbar-nav.me-auto.mb-3.mb-lg-0 i{
+    transition: 0.5s;
+}
+.navbar-collapse.collapse.show li{
+    margin:0rem 0rem 1.5rem 0.7rem;
+    
+    
+
+}
+.navbar-collapse.show {
+  border-radius: 0.7;
+  
+    
+    
+
+}
+.logo img{
+    width: 7pc;
+    position: absolute;
+    top: -0.4rem;
+    left: -1rem;
+    
+}
+
+/* Media query for screen widths 500px and below */
+@media (max-width: 600px) {
+    .navbar-collapse {
+        position: fixed;
+        top: 4.8rem;
+        left: -200px; /* Start off-screen to the left */
+        width: 200px; /* Adjust the width as needed */
+        height: 100vh; /* Full height */
+        background-color: rgba(248, 249, 250, 1);
+        border-left: 1px solid #dee2e6; /* Optional border */
+        transition: left 0.3s ease; /* Change transition property */
+        z-index: 1050; /* Ensure it is above other content */
+    }
+  
+    .navbar-collapse.show {
+        left: 0; /* Slide in from the left */
+       
+    }
+
+    .navbar-toggler {
+        margin-left: auto;
+    }
+    .navbar-toggler-close-custom.btn{
+        background-color:#1f363d;
+     
+        display: block;
+        margin-top:0.5rem;
+        width: 10.5pc;
+        margin-left: 1rem;
+        border-radius: 2rem;
+    }
+    #navbarSupportedContent.navbar-collapse.offset-3.collapse.show {
+        margin-left: 0px;
+        margin-top: 2.6rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+      
+    }
+   
+    .navbar-nav .nav-item a {
+        color: black;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 1100px){
+
+.d-flex{
+    padding-left:0.3rem;
+    padding-bottom: 1rem;
+ 
+   
+   
+}
+.navbar-collapse {
+    flex-grow: 1;
+    background-color: #456d7e;
+    border-radius: 2rem;
+    z-index: 1;
+    
+    
+    
+}
+
+
+
+
+}
+/* Additional styles for better UX */
+body {
+    overflow-x: hidden; /* Prevent horizontal scroll when navbar is open */
+}
+
+@media (max-width: 400px){
+    
+    .navbar.navbar-expand-md{
+        max-width: 100%;
+    }
+}
+@media (max-width: 600){
+    .dropdown{
+        display: block;
+    }
+    .navbar-collapse.show{
+        border-radius: 0;
+       
+        
+    }
+}
