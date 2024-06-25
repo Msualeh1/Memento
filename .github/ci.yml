@@ -52,7 +52,7 @@ jobs:
         with:
           host: ${{ SECRET_EC2_HOST }}
           username: ${{ SECRET_EC2_USERNAME }}
-          key: ${{ SSH_PRIVATE_KEY }}
+          key: ${{ SECRET_SSH_PRIVATE_KEY }}
           script: |
             docker pull memento
             docker run -d -p 3000:3000 memento
