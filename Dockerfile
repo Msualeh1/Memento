@@ -13,8 +13,15 @@ RUN npm install
 # Copy the rest of the application code to the working directory
 COPY . .
 
-# Copy the environment variable file (if needed)
-COPY config.env ./
+# Set a build argument for the MongoDB connection string
+ARG MONGO_URI
+
+# Set a build argument for the session secret key
+ARG SESSION_SECRET
+
+# Set environment variables using the build arguments
+ENV MONGO_URI=$MONGO_URI
+ENV SESSION_SECRET=$SESSION_SECRET
 
 # Expose the port on which your Node.js application will run
 EXPOSE 3000
