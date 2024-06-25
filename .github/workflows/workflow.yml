@@ -44,15 +44,8 @@ jobs:
           docker push msualeh/mementoapp:latest
         if: success()
 
-     - name: Deploy to AWS EC2
-  uses: appleboy/ssh-action@master
-  with:
-    host: ${{secrets.SECRET_EC2_HOST}}
-    username: ${{secrets.SECRET_EC2_USERNAME}}
-    key: ${{secrets.SECRET_SSH_PRIVATE_KEY}}
-    shell: bash
-    script: |
-      docker pull msualeh/mementoapp:latest
-      docker run -d -p 3000:3000 msualeh/mementoapp:latest
-
-
+      - name: Deploy to AWS EC2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{secrets.SECRET_EC2_HOST}}
+          username: $
