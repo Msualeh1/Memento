@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Node.js CI with Deployment
 
 on:
   push:
@@ -37,6 +37,22 @@ jobs:
         run: npm run lint
         working-directory: Memento
 
-      - name: Build project
-        run: npm start app.js
+      - name: Build Docker image
+        run: docker build -t your-image-name .
         working-directory: Memento
+
+      - name: Push Docker image to registry
+        run: |
+          echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+          docker push memento
+        if: success()
+
+      - name: Deploy to AWS EC2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            docker pull your-image-name
+            docker run -d -p host-port:container-port your-image-name
