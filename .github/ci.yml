@@ -1,0 +1,58 @@
+name: Node.js CI with Deployment
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.13.1]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: Memento
+
+      - name: Run tests
+        run: npm test
+        working-directory: Memento
+
+      - name: Lint code
+        run: npm run lint
+        working-directory: Memento
+
+      - name: Build Docker image
+        run: docker build -t your-image-name .
+        working-directory: Memento
+
+      - name: Push Docker image to registry
+        run: |
+          echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+          docker push memento
+        if: success()
+
+      - name: Deploy to AWS EC2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ SECRET_EC2_HOST }}
+          username: ${{ SECRET_EC2_USERNAME }}
+          key: ${{ SECRET_SSH_PRIVATE_KEY }}
+          script: |
+            docker pull memento
+            docker run -d -p 3000:3000 memento
