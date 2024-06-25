@@ -1,4 +1,4 @@
-name: Node.js CI with Deployment
+tname: Node.js CI with Deployment
 
 on:
   push:
@@ -48,7 +48,7 @@ jobs:
       - name: Deploy to AWS EC2
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ SECRET_EC2_HOST }}
+          host: ${{secret.SECRET_EC2_HOST }}
           username: ${{secret.SECRET_EC2_USERNAME }}
           key: ${{secret.SECRET_SSH_PRIVATE_KEY }}
           script: |
