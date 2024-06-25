@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [20]
+        node-version: [12]
 
     steps:
       - name: Checkout repository
@@ -24,19 +24,15 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: Memento
 
       - name: Run tests
         run: npm test
-        working-directory: Memento
 
       - name: Lint code
         run: npm run lint
-        working-directory: Memento
 
       - name: Build Docker image
         run: docker build -t msualeh/mementoapp:latest .
-        working-directory: Memento
 
       - name: Push Docker image to registry
         run: |
