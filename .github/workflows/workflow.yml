@@ -32,7 +32,7 @@ jobs:
 
       - name: Push Docker image to registry
         run: |
-          echo "Avenger75202" | docker login -u "msualeh" --password-stdin
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
           docker push msualeh/mementoapp:latest
         if: success()
 
