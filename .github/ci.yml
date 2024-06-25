@@ -50,9 +50,9 @@ jobs:
       - name: Deploy to AWS EC2
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          host: ${{ SECRET_EC2_HOST }}
+          username: ${{ SECRET_EC2_USERNAME }}
+          key: ${{ SSH_PRIVATE_KEY }}
           script: |
-            docker pull your-image-name
-            docker run -d -p host-port:container-port your-image-name
+            docker pull memento
+            docker run -d -p 3000:3000 memento
