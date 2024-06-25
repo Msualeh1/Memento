@@ -4,9 +4,7 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
+ 
 
 jobs:
   build:
@@ -43,7 +41,7 @@ jobs:
 
       - name: Push Docker image to registry
         run: |
-          echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+          echo "$ACCESS_TOKEN" | docker login -u "$DOCKER_USERNAME" --password-stdin
           docker push msualeh/mementoapp:latest
         if: success()
 
@@ -51,8 +49,8 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ SECRET_EC2_HOST }}
-          username: ${{ SECRET_EC2_USERNAME }}
-          key: ${{ SECRET_SSH_PRIVATE_KEY }}
+          username: ${{secret.SECRET_EC2_USERNAME }}
+          key: ${{secret.SECRET_SSH_PRIVATE_KEY }}
           script: |
             docker pull msualeh/mementoapp:latest
             docker run -d -p 3000:3000 msualeh/mementoapp:latest
