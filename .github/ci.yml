@@ -38,7 +38,7 @@ jobs:
         working-directory: Memento
 
       - name: Build Docker image
-        run: docker build -t your-image-name .
+        run: docker build -t msualeh/mementoapp:latest .
         working-directory: Memento
 
       - name: Push Docker image to registry
