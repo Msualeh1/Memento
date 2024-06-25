@@ -1,11 +1,13 @@
 require('dotenv').config();
 require('dotenv').config({ path: './config.env' });
+
 const errorhandler = require('./middlewares/errorhandler');
 
 const express = require('express');
 
+
 const path = require('path');
-const ejsMate = require('ejs-Mate');
+const ejsMate = require('ejs-mate');
 const ejs = require('ejs');
 const flash = require('connect-flash');
 const cookieParser = require('cookie-parser')
@@ -69,6 +71,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req, res, next) => {
   res.locals.messages = req.flash();
   res.locals.status = req.user;
+  
   next();
 });
 //general routes
@@ -84,7 +87,8 @@ app.use((req, res) => {
 
 app.use(errorhandler);
 
-app.listen(process.env.PORT, () => {
-  console.log('Server is listening');
-})
+app.listen(process.env.PORT || 3000, '0.0.0.0', () => {
+  console.log(`Server is listening on port ${process.env.PORT || 3000}`);
+});
+
 

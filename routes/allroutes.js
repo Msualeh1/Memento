@@ -1,5 +1,5 @@
 const express= require ('express');
-const Philosophy = require('../models/Philosophy')
+const Philosophy = require('../models/philosophy')
 const { ensureAuthenticated } = require('../middlewares/auth'); 
 const passport = require('passport');
 const router =express.Router();

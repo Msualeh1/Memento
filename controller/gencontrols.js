@@ -1,5 +1,5 @@
 const { ensureAuthenticated } = require('../middlewares/auth');
-const Philosophy = require('../models/Philosophy')
+const Philosophy = require('../models/philosophy')
 
 const { NotFoundError, BadRequestError, CustomError } = require('../errors/customErrors');
 

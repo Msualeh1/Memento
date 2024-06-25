@@ -1,4 +1,4 @@
-const Philosophy = require('../models/Philosophy')
+const Philosophy = require('../models/philosophy')
 const User = require('../models/user');
 const { ensureAuthenticated } = require('../middlewares/auth'); 
 

@@ -1,4 +1,4 @@
-const Philosophy = require('../models/Philosophy')
+
 const User = require('../models/user');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
