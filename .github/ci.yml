@@ -44,7 +44,7 @@ jobs:
       - name: Push Docker image to registry
         run: |
           echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-          docker push memento
+          docker push msualeh/mementoapp:latest
         if: success()
 
       - name: Deploy to AWS EC2
@@ -54,5 +54,5 @@ jobs:
           username: ${{ SECRET_EC2_USERNAME }}
           key: ${{ SECRET_SSH_PRIVATE_KEY }}
           script: |
-            docker pull memento
-            docker run -d -p 3000:3000 memento
+            docker pull msualeh/mementoapp:latest
+            docker run -d -p 3000:3000 msualeh/mementoapp:latest
