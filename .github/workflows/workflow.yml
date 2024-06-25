@@ -50,7 +50,7 @@ jobs:
           host: ${{secrets.SECRET_EC2_HOST}}
           username: ${{secrets.SECRET_EC2_USERNAME}}
           key: ${{secrets.SECRET_SSH_PRIVATE_KEY}}
-          shell: bash
+          shell: /bin/bash
           script: |
             docker pull msualeh/mementoapp:latest
             docker run -d -p 3000:3000 msualeh/mementoapp:latest
