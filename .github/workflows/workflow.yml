@@ -49,3 +49,8 @@ jobs:
           script: |
             docker pull msualeh/mementoapp:latest
             docker run -d -p 3000:3000 msualeh/mementoapp:latest
+            port: 22
+            timeout: 30s
+            command_timeout: 10m
+            volume:
+            - /root/.ssh:/root/.ssh:ro
