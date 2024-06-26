@@ -40,6 +40,12 @@ jobs:
         run: docker push msualeh/mementoapp:latest
         if: success()
 
+      - name: Debug Secrets
+        run: |
+         echo "EC2_HOST: ${{ secrets.EC2_HOST }}"
+         echo "EC2_USERNAME: ${{ secrets.EC2_USERNAME }}"
+         echo "EC2_KEY: ${{ secrets.EC2_KEY }}"
+         
       - name: Deploy to AWS EC2
         uses: appleboy/ssh-action@v1.0.3
         with:
