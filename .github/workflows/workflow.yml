@@ -43,9 +43,9 @@ jobs:
       - name: Deploy to AWS EC2
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.SECRET_EC2_HOST }}
-          username: ${{ secrets.SECRET_EC2_USERNAME }}
-          key: ${{ secrets.SECRET_SSH_PRIVATE_KEY }}
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_KEY }}
           shell: /bin/bash
           script: |
             docker pull msualeh/mementoapp:latest
