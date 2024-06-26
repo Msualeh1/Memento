@@ -45,12 +45,8 @@ jobs:
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
-          key: ${{ secrets.EC2_KEY }}
+          key: ${{ secrets.EC2_PRIVATE_KEY }}
           script: |
             docker pull msualeh/mementoapp:latest
             docker run -d -p 3000:3000 msualeh/mementoapp:latest
-            port: 22
-            timeout: 30s
-            command_timeout: 10m
-            volume:
-            - /root/.ssh:/root/.ssh:ro
+          
