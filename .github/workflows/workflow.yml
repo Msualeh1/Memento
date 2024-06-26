@@ -41,18 +41,12 @@ jobs:
         if: success()
 
       - name: Deploy to AWS EC2
-        env:
-          DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          EC2_HOST: ${{ secrets.EC2_HOST }}
-          EC2_USERNAME: ${{ secrets.EC2_USERNAME }}
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
-          key: |
-            ${{ secrets.EC2_PRIVATE_KEY }}
+          key: ${{ secrets.EC2_PRIVATE_KEY }}
+          passphrase: ${{ secrets.EC2_PRIVATE_KEY_PASSPHRASE }}
           script: |
-            eval $(ssh-agent)
-            ssh-add - <<< "${{ secrets.EC2_PRIVATE_KEY }}"
             docker pull msualeh/mementoapp:latest
             docker run -d -p 3000:3000 msualeh/mementoapp:latest
