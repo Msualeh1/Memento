@@ -31,10 +31,7 @@ jobs:
         run: docker build -t msualeh/mementoapp:latest .
 
       - name: Log in to Docker Hub
-        uses: docker/login-action@v1
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
       - name: Push Docker image to registry
         run: docker push msualeh/mementoapp:latest
@@ -43,9 +40,9 @@ jobs:
       - name: Deploy to AWS EC2
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{secrets.SECRET_EC2_HOST}}
-          username: ${{secrets.SECRET_EC2_USERNAME}}
-          key: ${{secrets.SECRET_SSH_PRIVATE_KEY}}
+          host: ${{ secrets.SECRET_EC2_HOST }}
+          username: ${{ secrets.SECRET_EC2_USERNAME }}
+          key: ${{ secrets.SECRET_SSH_PRIVATE_KEY }}
           shell: /bin/bash
           script: |
             docker pull msualeh/mementoapp:latest
