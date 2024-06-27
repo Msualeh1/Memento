@@ -15,6 +15,7 @@ const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const bodyParser = require('body-parser');
+const rateLimit= require('express-rate-limit');
 const methodOverride = require('method-override');
 const sanitize = require('express-mongo-sanitize');
 const User = require('./models/user');
@@ -22,6 +23,15 @@ const connectMongo = require('./middlewares/connect');
 
 
 const app = express();
+//rate limiter to prevent bruteforce, DOS and DDOS attacks
+limiter = rateLimit({
+  max: 1000,
+  windowMs: 60*60*1000,
+ message: 'Recieved too many request try again after 1 hour'
+});
+
+app.use('/user', limiter);
+app.use('/subjects', limiter);
 //Error handlers
 
 process.on('unhandledRejection ', (err)=>{
