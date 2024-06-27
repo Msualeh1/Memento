@@ -16,6 +16,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+const sanitize = require('express-mongo-sanitize');
 const User = require('./models/user');
 const connectMongo = require('./middlewares/connect');
 
@@ -49,6 +50,10 @@ connectMongo();
 
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
+
+//to protect from NoSQL Malicious Injections
+app.use(sanitize());
+
 app.use(methodOverride("_method"));
 app.use(session({ secret: process.env.SECRET_KEY, resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
