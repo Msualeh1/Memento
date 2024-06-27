@@ -47,6 +47,9 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           password: ${{ secrets.EC2_PASSWORD }}
           script: |
+            docker stop mementoapp || true
+            docker rm mementoapp || true
             docker pull msualeh/mementoapp:latest
-            docker run -d -p 3000:3000 msualeh/mementoapp:latest
-          debug: true
+            docker run -d -p 3000:3000 --name mementoapp msualeh/mementoapp:latest
+
+         
