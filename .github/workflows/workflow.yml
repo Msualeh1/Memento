@@ -47,13 +47,6 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           password: ${{ secrets.EC2_PASSWORD }}
           script: |
-            # Find existing container ID by name and stop it
-            CONTAINER_ID=$(docker ps -aqf "name=mementoapp")
-            if [ ! -z "$CONTAINER_ID" ]; then
-              docker stop $CONTAINER_ID || true
-              docker rm $CONTAINER_ID || true
-            fi
-
             # Pull latest Docker image and run new container
             docker pull msualeh/mementoapp:latest
             docker run -d -p 3000:3000 --name mementoapp msualeh/mementoapp:latest
