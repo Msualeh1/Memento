@@ -49,3 +49,4 @@ jobs:
           script: |
             docker pull msualeh/mementoapp:latest
             docker run -d -p 3000:3000 msualeh/mementoapp:latest
+          debug: true
